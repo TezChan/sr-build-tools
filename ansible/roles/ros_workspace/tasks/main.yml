@@ -87,7 +87,7 @@
 - name: Remove initial repository.rosinstall file from src directory
   file: path={{ros_workspace}}/src/repository.rosinstall state=absent
 
-- name: Load {{ros_workspace}}_deps dependencies for maximum 10 levels
+- name: Load {{ros_workspace}}_deps dependencies for maximum 10 levels [testing]
   script: ../files/load_repositories.sh {{ros_workspace}}/src {{ros_workspace}}_deps/src 10 {{use_ssh_uri | default('false')}} {{github_login | default('') }} {{github_password | default('') }}
 
 - name: Delete duplicated deps
